@@ -9,8 +9,10 @@
 6) Default Parameters DONE
 7) The Spread Operator DONE
 8) Destructuring DONE
-9) Rest Operator 
+9) Rest Operator  DONE
+
 10) map(), filter(), find(), reduce() para Arrays
+
 11) Promesas, Async/Await
 */
 
@@ -149,96 +151,18 @@ const clima = {
 };
 
 const moreData = {
-  country: "Argentina",
-};
+  country: 'Argentina'
+}
 
 const fullClima = {
   ...clima,
-  ...moreData,
-};
+  ...moreData
+}
 
 const { ciudad, pronostico, unidad, ...temp } = fullClima;
-
-console.log(temp);
-
+console.log(temp)
 const { temperatura } = temp;
-
 console.log(
   `Hoy en la ciudad de ${ciudad} el pronostico está ${pronostico} hace ${temperatura} (${unidad})`
 );
 
-//10) map(), filter(), find(), reduce() para Arrays
-
-// Map
-const numbersArray = [2, 4, 6, 8, 10];
-
-const numbersPorDos = numbersArray.map((number) => {
-  return number * 2;
-});
-console.log("Map", numbersArray, numbersPorDos);
-
-const resumenPeliculas0 = peliculasCopadas.map((pelicula) => {
-  const { nombre, anio, pais } = pelicula;
-  return `La pelicula ${nombre} es del ${anio} y el pais es ${pais}`;
-});
-
-const resumenPeliculas = peliculasCopadas.map(
-  ({ nombre, anio, pais }) =>
-    `La pelicula ${nombre} es del ${anio} y el pais es ${pais}`
-);
-
-const nombresPeliculas = peliculasCopadas.map((pelicula) => {
-  return pelicula.nombre;
-});
-
-const peliculasModificadas0 = peliculasCopadas.map((pelicula) => {
-  return { nombre: pelicula.nombre, anio: pelicula.anio };
-});
-
-const peliculasModificadas = peliculasCopadas.map(({ nombre, anio }) => {
-  return { nombre, anio };
-});
-
-console.log(
-  "Map peliculas",
-  peliculasCopadas,
-  resumenPeliculas,
-  nombresPeliculas,
-  peliculasModificadas
-);
-
-//Filter
-
-//La forma vieja que viene a ser reemplazada por el filter()
-let peliculasDeUSAOld = [];
-for (let index = 0; index < peliculasCopadas.length; index++) {
-  if (peliculasCopadas[index].origen === "USA") {
-    peliculasDeUSAOld.push(peliculasCopadas[index]);
-  }
-}
-console.log("Pelis de USA old", peliculasDeUSAOld);
-
-const pelisDeUSA = peliculasCopadas.filter((pelicula) => {
-  // Filter devuelve un array!
-  return pelicula.origen === "USA" ? pelicula : false;
-});
-
-const killBill = peliculasCopadas.find((pelicula) => {
-  // Find devuelve un objeto!
-  return pelicula.nombre === "Kill Bill" ? pelicula : false;
-});
-
-// if (pelicula.pais === 'USA') {
-//   console.log(pelicula)
-// }else{
-//   false
-// }
-
-// condicion ? true : false
-
-console.log("Pelis de USA", pelisDeUSA, killBill);
-
-const promedioAnios = peliculasCopadas.reduce((accumulator, pelicula) => {
-  return accumulator + Number(pelicula.anio) / peliculasCopadas.length;
-}, 0);
-console.log("reduce", promedioAnios);
