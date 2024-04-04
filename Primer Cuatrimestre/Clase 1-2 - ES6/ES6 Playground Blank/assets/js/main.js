@@ -163,12 +163,32 @@ console.log("17", releaseString);
 //18. Use the map() method to create a new array with just the artist names.
 
 const artistsNames = songs.map(({ artist }) => artist);
-console.log('18', artistsNames)
-
+console.log("18", artistsNames);
 
 //19. Create a function called randomSong that returns one song from the songs array randomly. Log the call of this function 3 times.
 
-const randomSong = (arr) => arr[(Math.floor(Math.random() * arr.length))]
-console.log('19', randomSong(songs))
-console.log('19', randomSong(songs))
-console.log('19', randomSong(songs))
+const randomSong = (arr) => arr[Math.floor(Math.random() * arr.length)];
+console.log("19", randomSong(songs));
+console.log("19", randomSong(songs));
+console.log("19", randomSong(songs));
+
+//20. Sumar todos los años de las canciones de los 80s
+
+const eigthyYearsSongs = songs
+  .filter(({ year }) => year >= 1980 && year < 1990)
+  .reduce((acc, curr) => acc + curr.year, 0);
+
+console.log("20", eigthyYearsSongs);
+
+/*
+Map => Devuelve un array transformado
+Filter => Devuelve un array con los objetos filtrados
+Find => Devuelve un objeto (El primero que cumpla con la condicion
+Reduce => Devuelve un numero (la sumatoria, promedio, etc)
+*/
+
+
+//Generar una canción tomando un artista random, un año random y un titulo random.
+
+console.log('21', randomSong(songs).artist, randomSong(songs).title, randomSong(songs).year)
+
