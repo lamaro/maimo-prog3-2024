@@ -10,3 +10,5 @@ const songs = [
   { title: 'Let It Be', artist: 'The Beatles', year: 1970 },
   { title: 'Thriller', artist: 'Michael Jackson', year: 1982 },
 ]
+
+export default songs
